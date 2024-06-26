@@ -1,0 +1,38 @@
+<div id="<%= dom_id user %>">
+
+  <h6 style="color: gray">#<%= user.id %></h6>
+  <h2><%=user.first_name%> <%=user.last_name%> (<%= user.username%>)</h2>
+
+  <img src="<%= user.pic_url%>" alt="profile image" class="profile-image" />
+
+  <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong>Password:</strong>
+    <%= user.password %>
+  </p>
+
+  <p>
+    <strong>Birth date:</strong>
+    <%= user.birth_date %>
+  </p>
+
+  <p>
+    <strong>Role:</strong>
+    <%= user.role_id %>
+  </p>
+
+  <p>
+    <strong>State:</strong>
+    <%= user.state_id %>
+  </p>
+
+  <p>
+    <strong>Bio:</strong>
+    <%= user.bio %>
+  </p>
+
+</div>

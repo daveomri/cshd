@@ -1,0 +1,68 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_field :username, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :pic_url, style: "display: block" %>
+    <%= form.text_field :pic_url %>
+  </div>
+
+  <div>
+    <%= form.label :birth_date, style: "display: block" %>
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div>
+    <%= form.label :state_id, style: "display: block" %>
+    <%= form.select :state_id, User.state_ids.keys.to_a %>
+    <%# <%= form.number_field :state_id, required: true % > %>
+  </div>
+
+  <div>
+    <%= form.label :role_id, style: "display: block" %>
+    <%= form.select :role_id, User.role_ids.keys.to_a %>
+  </div>
+
+  <div>
+    <%= form.label :bio, style: "display: block" %>
+    <%= form.text_area :bio %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

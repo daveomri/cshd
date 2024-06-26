@@ -1,0 +1,27 @@
+<%= %>
+  <div class="toolbar">
+    <div class="container">
+      <div class="logo">
+        <a href="<%= root_path%>">
+          <div class="logo-path">
+            <p>CSHD</p>
+          </div>
+        </a>
+      </div>
+      <div class="info">
+        <div class="dropdown">
+          <button class="dropbtn">☰</button>
+          <div class="dropdown-content">
+            <% if defined?(current_user) && current_user %>
+              <a href="<%= users_path%>/<%= current_user.id%>">Profile</a>
+              <a href="<%= logout_path%>">Logout</a>
+            <% else %>
+              <a href="<%= new_user_path%>">Register</a>
+              <a href="<%= login_path%>">Login</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% %>

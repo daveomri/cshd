@@ -1,0 +1,16 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <%# <%= render @artist % > %>
+  <%= render "artist_profile", artist: @artist %>
+
+  <% if defined?(current_user) && current_user && (current_user.role_id == "admin")%>
+    <div>
+      <p><%= link_to "Edit this artist", edit_artist_path(@artist) %></p>
+      <p><%= link_to "Back to artists", artists_path %></p>
+      <p><%= button_to "Destroy this artist", @artist, method: :delete %></p>
+    </div>
+  <% end %>
+</div>

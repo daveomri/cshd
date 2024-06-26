@@ -1,0 +1,25 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+  
+  <%= link_to "New state", new_state_path %>
+
+  <div id="table-container">
+    <table class="styled-table">
+      <caption><h2>States</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "name", :sort => "name"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @states.each do |state| %>
+          <tr>
+            <td><%= link_to state.name, state %></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

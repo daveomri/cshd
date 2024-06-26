@@ -1,0 +1,40 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <%= link_to "New artist", new_artist_path %>
+
+  <div id="table-container">
+    <%= form_tag(artists_path, method: :get) do %>
+      <p> Search for an artist </p>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+    <% end %>
+    <table class="styled-table">
+      <caption><h2>Artists</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "nickname", :sort => "nickname"%></th>
+          <th><%= link_to "first name", :sort => "first_name"%></th>
+          <th><%= link_to "last name", :sort => "last_name"%></th>
+          <th><%= link_to "state", :sort => "state_id"%></th>
+          <th><%= link_to "birth_date", :sort => "birth_date"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @artists.each do |artist| %>
+          <tr>
+            <td><%= link_to artist.nickname, artist %></td>
+            <td><%= artist.first_name%></td>
+            <td><%= artist.last_name%></td>
+            <td><%= artist.state_id%></td>
+            <td><%= artist.birth_date%></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

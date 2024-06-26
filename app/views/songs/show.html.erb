@@ -1,0 +1,59 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @song %>
+
+  <div>
+    <%= link_to "Back to songs", songs_path %>
+    <% if defined?(current_user) && current_user && (current_user.role_id == "admin")%>
+      <p><%= link_to "Edit this song", edit_song_path(@song) %></p>
+      <p><%= button_to "Destroy this song", @song, method: :delete %></p>
+    <% end %>
+  </div>
+  -
+  <% if defined?(current_user) && current_user %>
+    <div class="review">
+      <h2>Your review</h2>
+      <% if Review.find_by(user_id: current_user.id, song_id: @song.id) %>
+        <%= render Review.find_by(user_id: current_user.id, song_id: @song.id)%>
+
+        <div>
+          <%= button_to "Destroy this review", Review.find_by(user_id: current_user.id, song_id: @song.id), method: :delete %>
+        </div>
+
+      <% else %>
+        <%= render "reviews/form", review: Review.new, song: @song %>
+      <% end %>
+    </div>
+  <% end %>
+  -
+  <div class="reviews">
+    <table class="styled-table">
+      <caption><h2>Reviews</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "user", :sort => "user_id"%></th>
+          <th><%= link_to "song", :sort => "song_id"%></th>
+          <th><%= link_to "rating", :sort => "rating"%></th>
+          <th><%= link_to "interaction", :sort => "interaction_id"%></th>
+          <th><%= link_to "review", :sort => "review"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Review.where(song_id: @song.id).each do |review| %>
+          <tr>
+            <td><%= link_to User.find_by(id: review.user_id).username, User.find_by(id: review.user_id) %></td>
+            <td><%= link_to @song.name, @song %></td>
+            <td><%= review.rating %></td>
+            <td><%= review.interaction_id %></td>
+            <td><%= review.review %>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

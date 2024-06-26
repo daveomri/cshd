@@ -1,0 +1,27 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <%= link_to "New language", new_language_path %>
+  
+  <div id="table-container">
+    <table class="styled-table">
+    <caption><h2>Languages</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "name", :sort => "name"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @languages.each do |language| %>
+          <tr>
+            <td><%= link_to language.name, language %></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

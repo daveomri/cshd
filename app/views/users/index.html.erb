@@ -1,0 +1,40 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+
+  <div id="table-container">
+    <%= link_to "New user", new_user_path %>
+    <%= form_tag(users_path, method: :get) do %>
+      <p> Search for an user </p>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+    <% end %>
+    <table class="styled-table">
+      <caption><h2>Users</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "username", :sort => "username"%></th>
+          <th><%= link_to "first name", :sort => "first_name"%></th>
+          <th><%= link_to "last name", :sort => "last_name"%></th>
+          <th><%= link_to "state", :sort => "state_id"%></th>
+          <th><%= link_to "role", :sort => "role_id"%></th>
+          <th><%= link_to "created", :sort => "created_at"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.username, user %></td>
+            <td><%= user.first_name%></td>
+            <td><%= user.last_name%></td>
+            <td><%= user.state_id%></td>
+            <td><%= user.role_id%></td>
+            <td><%= user.created_at%></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

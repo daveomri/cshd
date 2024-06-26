@@ -1,0 +1,20 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <div class="content">
+    <h1>Login</h1>
+    <%= form_with url: login_path, scope: :user do |form| %>
+      <div class="form-row">
+        <%= form.label :email %>
+        <br>
+        <%= form.email_field :email, required: true %>
+      </div>
+      <div class="form-row">
+        <%= form.label :password %>
+        <br>
+        <%= form.password_field :password, required: true %>
+      </div>
+      <%= form.submit "Sign In" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString1
+  info: MyText
+  released: 2023-01-11
+  language_id: 1
+  artist_id: 1
+  song_url: MyString
+
+two:
+  name: MyString2
+  info: MyText
+  released: 2023-01-11
+  language_id: 1
+  artist_id: 1
+  song_url: MyString

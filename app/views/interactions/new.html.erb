@@ -1,0 +1,13 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <h1>New interaction</h1>
+
+  <%= render "form", interaction: @interaction %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to interactions", interactions_path %>
+  </div>
+</div>

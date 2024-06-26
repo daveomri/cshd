@@ -1,0 +1,34 @@
+<div id="<%= dom_id review %>">
+  <p>
+    <strong>User:</strong>
+    <% if User.find_by(id: review.user_id) %>
+      <%= User.find_by(id: review.user_id).username %>
+    <% else %>
+      <%= review.user_id%>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Song:</strong>
+    <% if Song.find_by(id: review.song_id) %>
+      <%= Song.find_by(id: review.song_id).name %>
+    <% else %>
+      <%= review.song_id %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Interaction:</strong>
+    <%= review.interaction_id %>
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    <%= review.rating %>
+  </p>
+
+  <p>
+    <strong>Review:</strong>
+    <%= review.review %>
+  </p>
+</div>

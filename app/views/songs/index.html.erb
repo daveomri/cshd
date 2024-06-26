@@ -1,0 +1,35 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <div id="table-container">
+    <p><%= link_to "New song", new_song_path %></p>
+    <%= form_tag(songs_path, method: :get) do %>
+      <p> Search for a song </p>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+    <% end %>
+    <table class="styled-table">
+      <caption><h2>Songs</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "name", :sort => "name"%></th>
+          <th><%= link_to "language", :sort => "language_id"%></th>
+          <th><%= link_to "artist", :sort => "artist_id"%></th>
+          <th><%= link_to "released", :sort => "released"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @songs.each do |song| %>
+          <tr>
+            <td><%= link_to song.name, song %></td>
+            <td><%= song.language_id%></td>
+            <td><%= link_to Artist.find_by(id: song.artist_id).nickname, Artist.find_by(id: song.artist_id) %></td>
+            <td><%= song.released%></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

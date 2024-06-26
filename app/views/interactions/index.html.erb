@@ -1,0 +1,26 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <div id="table-container">
+    <%= link_to "New interaction", new_interaction_path %>
+    <table class="styled-table">
+    <caption><h2>Interactions</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "name", :sort => "name"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @interactions.each do |interaction| %>
+          <tr>
+            <td><%= link_to interaction.name, interaction %></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

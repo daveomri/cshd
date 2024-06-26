@@ -1,0 +1,27 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <p style="color: green"><%= notice %></p>
+
+  <div id="table-container">
+    <table class="styled-table">
+      <caption><h2>Roles</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "name", :sort => "name"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @roles.each do |role| %>
+          <tr>
+            <td><%= link_to role.name, role %></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to "New role", new_role_path %>
+</div>

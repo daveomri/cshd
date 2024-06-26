@@ -1,0 +1,46 @@
+<div id="<%= dom_id artist %>">
+  <h6 style="color: gray">#<%= artist.id %></h6>
+  <h2><%= artist.nickname%>(<%=artist.first_name%> <%=artist.last_name%>)</h2>
+
+  <img src="<%= artist.pic_url%>" alt="artist image" class="artist-image" />
+
+  <p>
+    <strong>Birth date:</strong>
+    <%= artist.birth_date %>
+  </p>
+
+  <p>
+    <strong>State:</strong>
+    <%= artist.state_id %>
+  </p>
+
+  <p>
+    <strong>Bio:</strong>
+    <%= artist.bio %>
+  </p>
+
+  <table class="styled-table">
+      <caption><h2><%= artist.nickname%>'s songs</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "name", :sort => "name"%></th>
+          <th><%= link_to "language", :sort => "language_id"%></th>
+          <th><%= link_to "artist", :sort => "artist_id"%></th>
+          <th><%= link_to "released", :sort => "released"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Song.where(artist_id: artist.id).each do |song| %>
+          <tr>
+            <td><%= link_to song.name, song %></td>
+            <td><%= song.language_id%></td>
+            <td><%= link_to artist.nickname, artist %></td>
+            <td><%= song.released%></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+
+</div>

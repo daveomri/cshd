@@ -1,0 +1,167 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.dropbtn {
+  background-color: rgb(169, 12, 12);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  max-width: 70px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #c42348;}
+
+
+.toolbar {
+  background-color: rgb(169, 12, 12);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 95%;
+  display: inline-flex;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  width: 20%;
+  text-align: center;
+  border-right-style: double;
+  border-color: #721121;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.logo-path {
+  width: 100%;
+}
+
+.info {
+  width: 80%;
+  display: flex;
+  align-items: stretch;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.content {
+  display: block;
+  width: 100%;
+}
+
+.form-row {
+  padding-bottom: 9px;
+}
+
+.profile-image {
+  width: 60px;
+}
+
+#root {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+#table-container {
+  padding-top: 10px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: auto;
+}
+
+.styled-table thead tr {
+  background-color: rgb(169, 12, 12);
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table a {
+  text-decoration: none;
+}
+
+.styled-table th a {
+  color: #fff;
+}
+
+.styled-table td a {
+  font-weight: bold;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(169, 12, 12);
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: rgb(169, 12, 12);
+}

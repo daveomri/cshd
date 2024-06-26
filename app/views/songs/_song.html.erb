@@ -1,0 +1,31 @@
+<div id="<%= dom_id song %>">
+
+  <h6 style="color: gray">#<%= song.id %></h6>
+  <iframe title="spotify" style="border-radius:12px" src="<%= song.song_url%>" width="40%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+ 
+  <p>
+    <strong>Name:</strong>
+    <%= song.name %>
+  </p>
+
+  <p>
+    <strong>Artist:</strong>
+    <%= link_to Artist.find_by(id: song.artist_id).nickname, Artist.find_by(id: song.artist_id) %>
+  </p>
+
+  <p>
+    <strong>Info:</strong>
+    <%= song.info %>
+  </p>
+
+  <p>
+    <strong>Released:</strong>
+    <%= song.released %>
+  </p>
+
+  <p>
+    <strong>Language:</strong>
+    <%= song.language_id %>
+  </p>
+
+</div>

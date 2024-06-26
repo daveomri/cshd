@@ -1,0 +1,13 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <h1>New song</h1>
+
+  <%= render "form", song: @song %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to songs", songs_path %>
+  </div>
+</div>

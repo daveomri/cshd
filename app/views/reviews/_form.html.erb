@@ -1,0 +1,57 @@
+<%= form_with(model: review) do |form| %>
+  <% if review.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <% if defined?(current_user) && current_user %>
+      <%= form.label :user_id, style: "display: block; display: none;" %>
+      <div style="display: none">
+        <%= form.number_field :user_id, :value => current_user.id %>
+      </div>
+    <% else %>
+      <%= form.label :user_id, style: "display: block; display: none;" %>
+      <%= form.number_field :user_id %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if defined?(song) %>
+      <div style="display: none">
+        <%= form.label :song_id, style: "display: block" %>
+        <%= form.number_field :song_id, :value => song.id %>
+      </div>
+    <% else %>
+      <%= form.label :song_id, style: "display: block" %>
+      <%= form.number_field :song_id %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :rating, style: "display: block" %>
+    <%= form.select :rating, Review.ratings.keys.to_a %>
+    <%# <%= form.number_field :rating % > %>
+  </div>
+
+  <div>
+    <%= form.label :review, style: "display: block" %>
+    <%= form.text_area :review %>
+  </div>
+
+  <div>
+    <%= form.label :interaction_id, style: "display: block" %>
+    <%= form.select :interaction_id, Review.interaction_ids.keys.to_a %>
+    <%# <%= form.text_area :review % > %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

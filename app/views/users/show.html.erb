@@ -1,0 +1,38 @@
+<div id="root">
+  <%= render partial: "static_pages/header" %>
+
+  <%= render "profile", user: @user %>
+
+   <table class="styled-table">
+      <caption><h2>Reviews</h2></caption>
+      <thead>
+        <tr>
+          <th><%= link_to "user", :sort => "user_id"%></th>
+          <th><%= link_to "song", :sort => "song_id"%></th>
+          <th><%= link_to "rating", :sort => "rating"%></th>
+          <th><%= link_to "interaction", :sort => "interaction_id"%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Review.where(user_id: @user.id).each do |review| %>
+          <tr>
+            <td><%= link_to @user.username, @user %></td>
+            <td><%= link_to Song.find_by(id: review.song_id).name, Song.find_by(id: review.song_id) %></td>
+            <td><%= review.rating %></td>
+            <td><%= review.interaction_id %></td>
+          </tr>
+          <p>
+          </p>
+        <% end %>
+      </tbody>
+    </table>
+
+  <div>
+    <% if defined?(current_user) && current_user && (current_user.id == @user.id || current_user.role_id == "admin") %>
+    <p><%= link_to "Edit", edit_user_path(@user) %></p>
+    <p><%= link_to "Delete", @user, method: :delete %></p>
+    <% end %>
+  </div>
+  -
+  <p><%= link_to "Show users", users_path %></p>
+</div>
